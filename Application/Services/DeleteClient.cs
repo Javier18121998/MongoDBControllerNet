@@ -1,22 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PersonalHealthManager.Infrastructure.Data;
 using PersonalHealthManager.WebAPI.Models;
 using MongoDB.Driver;
-using MongoDB.Bson;
+using PersonalHealthManager.Domain.BaseControllers;
 
 namespace PersonalHealthManager.Application.Services
 {
-    public class DeleteClient : ControllerBase
+    public class DeleteClient : BaseClient
     {
-        private readonly AppDbContext _context;
-        public DeleteClient(AppDbContext context)
-        {
-            this._context = context;
-        }
+        private DeleteClient(AppDbContext context) : base(context) {}
         public async Task<IActionResult> DeleteOneClient(string id)
         {
             try

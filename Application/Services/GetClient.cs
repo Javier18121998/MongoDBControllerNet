@@ -1,22 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PersonalHealthManager.Infrastructure.Data;
-using PersonalHealthManager.WebAPI.Models;
+using PersonalHealthManager.Domain.BaseControllers;
 using MongoDB.Driver;
 using MongoDB.Bson;
 
 namespace PersonalHealthManager.Application.Services
 {
-    public class GetClient : ControllerBase
+    public class GetClient : BaseClient
     {
-        private readonly AppDbContext _context;
-        public GetClient(AppDbContext context)
-        {
-            this._context = context;
-        }
+        private GetClient(AppDbContext context) : base(context) {}
         public IActionResult Getclient(string id)
         {
             var collection = _context.Clients;

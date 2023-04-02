@@ -1,22 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PersonalHealthManager.Infrastructure.Data;
+using PersonalHealthManager.Domain.BaseControllers;
 using PersonalHealthManager.WebAPI.Models;
 using MongoDB.Driver;
 using MongoDB.Bson;
 
 namespace PersonalHealthManager.Application.Services
 {
-    public class PostOneClient : ControllerBase
+    public class PostOneClient : BaseClient
     {
-        private readonly AppDbContext _context;
-        public PostOneClient(AppDbContext context)
-        {
-            this._context = context;
-        }
+        private PostOneClient(AppDbContext context) : base(context) {}
         public IActionResult PostingClient(ClientsBd client)
         {
             try
