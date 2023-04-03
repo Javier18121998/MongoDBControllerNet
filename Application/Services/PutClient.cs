@@ -1,12 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PersonalHealthManager.Infrastructure.Data;
 using PersonalHealthManager.WebAPI.Models;
 using MongoDB.Driver;
-using MongoDB.Bson;
 
 namespace PersonalHealthManager.Application.Services
 {
