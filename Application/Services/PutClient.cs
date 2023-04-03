@@ -1,14 +1,22 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PersonalHealthManager.Infrastructure.Data;
-using PersonalHealthManager.Domain.BaseControllers;
 using PersonalHealthManager.WebAPI.Models;
 using MongoDB.Driver;
+using MongoDB.Bson;
 
 namespace PersonalHealthManager.Application.Services
 {
-    public class PutClient : BaseClient
+    public class PutClient : ControllerBase
     {
-        private PutClient(AppDbContext context) : base(context) {}
+        private readonly AppDbContext _context;
+        public PutClient(AppDbContext context)
+        {
+            this._context = context;
+        }
         public IActionResult UpdateClientbyId(int? id, ClientsBd client)
         {
             try
